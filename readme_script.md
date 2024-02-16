@@ -1,4 +1,4 @@
-# Tenis- Difucltades
+# Tenis- Difucultades
 La forma de correr el archivo solo es ejecutando el programa, la entrad de los nombre no deberia de jhber ningun problema
 Se admiten Mayusculas, numeros y caracteres raros y creo que emojis tambien
 El unico problema es que si los dos tiene nombres iguales se sumaran los puntos, juegos y sets al primero de ellos
