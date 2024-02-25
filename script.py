@@ -2,7 +2,7 @@ import pymysql
 import random
 from datetime import datetime, timedelta
 
-# Función para establecer la conexión con la base de datos
+
 def establecer_conexion():
     return pymysql.connect(host='localhost',
                            user='lab',
@@ -11,42 +11,47 @@ def establecer_conexion():
                            charset='utf8mb4',
                            cursorclass=pymysql.cursors.DictCursor)
 
-# Función para insertar un nuevo usuario
+
 def insertar_usuario():
     conexion = establecer_conexion()
     try:
         with conexion.cursor() as cursor:
             sql = "INSERT INTO usuarios (nombre, apPat, apMat, password, email, superUser) VALUES (%s, %s, %s, %s, %s, %s)"
-            num_aleatorio = random.randint(0, 1000)
-            usuario = f'Usuario{num_aleatorio}'
-            num_aleatorio = random.randint(0, 1000)
-            apPat = f'ApellidoP{num_aleatorio}'
-            num_aleatorio = random.randint(0, 1000)
-            apMat = f'ApellidoM{num_aleatorio}'
-            num_aleatorio = random.randint(0, 1000)
-            contrasenia = f'contrasenia{num_aleatorio}'
-            correo = f'{usuario}@correo.com'
+            num_aleatorio = random.randint(0, 100)
+            usuario = f'User{num_aleatorio}'
+            num_aleatorio = random.randint(0, 100)
+            apPat = f'LastName1{num_aleatorio}'
+            num_aleatorio = random.randint(0, 100)
+            apMat = f'LastName2{num_aleatorio}'
+            num_aleatorio = random.randint(0, 100)
+            contrasenia = f'password{num_aleatorio}'
+            correo = f'{usuario}@example.com'
             cursor.execute(sql, (usuario, apPat, apMat, contrasenia, correo, 0))
             conexion.commit()
             print(f"Usuario insertado: {usuario} {apPat} {apMat}")
     finally:
         conexion.close()
 
-# Función para insertar una nueva película
+
 def insertar_pelicula():
     conexion = establecer_conexion()
     try:
         with conexion.cursor() as cursor:
+            generos = ['Acción', 'Drama', 'Comedia', 'Ciencia Ficción', 'Romance', 'Suspenso', 'Animación']
+            genero = random.choice(generos)
+            duracion = random.randint(60, 180)  # Duración aleatoria entre 60 y 180 minutos
             sql = "INSERT INTO peliculas (nombre, genero, duracion, inventario) VALUES (%s, %s, %s, %s)"
             num_aleatorio = random.randint(0, 1000)
-            nombre_pelicula = f'Pelicula{num_aleatorio}'
-            cursor.execute(sql, (nombre_pelicula, 'Accion', 160, 1))
+            nombre_pelicula = f'Movie{num_aleatorio}'
+            cursor.execute(sql, (nombre_pelicula, genero, duracion, 1))
             conexion.commit()
-            print(f"Pelicula insertada: {nombre_pelicula}")
+            print(f"Película insertada: {nombre_pelicula}, Género: {genero}, Duración: {duracion} minutos")
     finally:
         conexion.close()
 
-# Función para insertar una nueva renta
+
+
+
 def insertar_renta():
     conexion = establecer_conexion()
     try:
@@ -61,20 +66,17 @@ def insertar_renta():
             sql = "INSERT INTO rentar (idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus) VALUES (%s, %s, %s, %s, %s)"
             cursor.execute(sql, (id_usuario, id_pelicula, fecha_renta, dias_de_renta, estatus))
             conexion.commit()
-            print(f"Renta insertada del usuario con id: {id_usuario} y pelicula con id: {id_pelicula}")
+            print(f"Renta insertada para el usuario con ID: {id_usuario} y película con ID: {id_pelicula}")
     finally:
         conexion.close()
 
-# Función para insertar al menos un registro en cada tabla
+
 def insertar_registros_en_todas_las_tablas():
-    """
-    Inserta al menos un registro en cada tabla de la base de datos.
-    """
     insertar_usuario()
     insertar_pelicula()
     insertar_renta()
 
-# Función para filtrar usuarios por la terminación de su apellido
+
 def filtrar_usuarios_apellido(apellido_terminacion):
     conexion = establecer_conexion()
     try:
@@ -84,13 +86,13 @@ def filtrar_usuarios_apellido(apellido_terminacion):
             cursor.execute(sql, (patron, patron))
             resultado = cursor.fetchall()
             if not resultado:
-                print("No se encontraron usuarios")
+                print("No se encontraron usuarios con ese apellido")
             for usuario in resultado:
                 print(usuario)
     finally:
         conexion.close()
 
-# Función para cambiar el género de una película
+
 def cambiar_genero_pelicula(pelicula, genero):
     conexion = establecer_conexion()
     try:
@@ -102,13 +104,13 @@ def cambiar_genero_pelicula(pelicula, genero):
                 sql_cambiar_genero = "UPDATE peliculas SET genero = %s WHERE nombre = %s"
                 cursor.execute(sql_cambiar_genero, (genero, pelicula))
                 conexion.commit()
-                print("Genero cambiado con éxito!")
+                print("Género cambiado con éxito!")
             else:
-                print("Pelicula no encontrada!")
+                print("Película no encontrada!")
     finally:
         conexion.close()
 
-# Función para eliminar las rentas antiguas
+
 def eliminar_rentas_antiguas():
     conexion = establecer_conexion()
     try:
@@ -122,7 +124,7 @@ def eliminar_rentas_antiguas():
     finally:
         conexion.close()
 
-# Función para eliminar todos los registros de todas las tablas
+
 def eliminar_registros_todas_las_tablas():
     conexion = establecer_conexion()
     try:
@@ -135,7 +137,7 @@ def eliminar_registros_todas_las_tablas():
     finally:
         conexion.close()
 
-# Función principal que muestra el menú y maneja las opciones del usuario
+
 def main():
     while True:
         print("\nMenú:")
@@ -167,6 +169,8 @@ def main():
         else:
             print("Opción inválida. Por favor, seleccione una opción válida.")
 
-# Llama a la función principal
+
 if __name__ == "__main__":
     main()
+
+ 
