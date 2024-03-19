@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Usuario por ID</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"],
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7bed9f;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #5cb85c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Obtener Película por ID</h1>
+        <form action="{{ url_for('pelicula.actualizar_pelicula') }}" method="POST">
+            <label for="idPelicula">ID de Película:</label><br>
+            <input type="text" id="idPelicula" name="idPelicula" required><br><br>
+
+            <input type="submit" value="Obtener Película">
+        </form>
+        <button onclick="window.location.href='/pelicula'">Regresar</button>
+    </div>
+</body>
+</html>

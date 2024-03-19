@@ -20,6 +20,7 @@
         }
         h1 {
             color: #333;
+            font-size: 36px;
         }
         .button-container {
             margin-top: 20px;
@@ -41,11 +42,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido a CloneBuster</h1>
+        <h1>Menu de Usuario</h1>
         <div class="button-container">
-            <button class="big-button" onclick="window.location.href='/usuario'">Usuarios</button>
-            <button class="big-button" onclick="window.location.href='/pelicula'">Películas</button>
-            <button class="big-button" onclick="window.location.href='/renta'">Rentas</button>
+            <button class="big-button" onclick="window.location.href='/usuario/registra-usuario'">Crear Usuario</button>
+            <button class="big-button" onclick="window.location.href='/usuario/ver-usuarios'">Ver Usuarios</button>
+            <button class="big-button" onclick="window.location.href='/usuario/actualizar-usuario'">Editar Usuario</button>
+            <button class="big-button" onclick="window.location.href='/usuario/borrar-usuario'">Borrar Usuario</button>
+            <button class="big-button" onclick="window.location.href='/'">Regresar</button>
         </div>
     </div>
 </body>

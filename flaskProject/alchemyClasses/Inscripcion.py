@@ -2,8 +2,8 @@ from alchemyClasses import db
 from flask import Column, Integer, ForeignKey, DateTime
 from datetime import date
 
-class Inscripcion(db.Model):
 
+class Inscripcion(db.Model):
     __tablename__ = 'inscripcion'
     id_inscripcion = Column(Integer, primary_key=True)
     id_alumno = Column(Integer, ForeignKey('alumno.id_alumno'))
@@ -16,5 +16,5 @@ class Inscripcion(db.Model):
         self.fecha = fecha
 
     def __str__(self):
-        #Que regrese el nombre del alumno y que regrese el nombre de la clase.
-        return f"Alumno: {}\nClase: {}\nFecha: {self.fecha}"
+        # Que regrese el nombre del alumno y que regrese el nombre de la clase.
+        return f"Alumno: {self.id_alumno}\nClase: {self.id_clase}\nFecha: {self.fecha}"

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obtener Renta por ID</title>
+</head>
+<body>
+    <h1>Obtener Renta por ID</h1>
+    <form action="{{ url_for('renta.actualizar_renta') }}" method="POST">
+        <label for="idRenta">ID de Renta:</label><br>
+        <input type="text" id="idRenta" name="idRenta" required><br><br>
+
+        <input type="submit" value="Obtener Renta">
+    </form>
+    <button onclick="window.location.href='/renta'">Regresar</button>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Rentas</title>
+</head>
+<body>
+    <h1>Lista de Rentas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Renta</th>
+                <th>ID Usuario</th>
+                <th>ID Película</th>
+                <th>Fecha de Renta</th>
+                <th>Días de Renta</th>
+                <th>Estatus</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for renta in rentas %}
+                <tr>
+                    <td>{{ renta.idRenta }}</td>
+                    <td>{{ renta.idUsuario }}</td>
+                    <td>{{ renta.idPelicula }}</td>
+                    <td>{{ renta.fechaRenta }}</td>
+                    <td>{{ renta.diasDeRenta }}</td>
+                    <td>{% if renta.estatus %} Rentado {% else %} Devuelto {% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="window.location.href='/rentar/agregar_renta'">Agregar Renta</button>
+    <button onclick="window.location.href='/renta'">Regresar</button>
+</body>
+</html>

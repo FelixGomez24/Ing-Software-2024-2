@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7bed9f;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #5cb85c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crear un usuario</h1>
+        <form action="{{ url_for('usuario.registra_usuario') }}" method="POST">
+            <label for="nombre">Ingrese el nombre:</label>
+            <input type="text" name="nombre" id="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="El nombre no puede contener números ni caracteres especiales" required/>
+            <br>
+            <label for="apPat">Ingrese el apellido paterno:</label>
+            <input type="text" name="apPat" id="apPat" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="El apellido paterno no puede contener números ni caracteres especiales" required/>
+            <br>
+            <label for="apMat">Ingrese el apellido materno:</label>
+            <input type="text" name="apMat" id="apMat" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="El apellido materno no puede contener números ni caracteres especiales" required/>
+            <br>
+            <label for="password">Ingrese la contraseña:</label>
+            <input type="password" name="password" id="password" required/>
+            <br>
+            <label for="email">Ingrese el email:</label>
+            <input type="email" name="email" id="email" required/>
+            <br>
+            <button type="submit">Crear usuario</button>
+        </form>
+        {% if get_flashed_messages() %}
+            {% for message in get_flashed_messages() %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <button onclick="window.location.href='/usuario'">Regresar</button>
+    </div>
+</body>
+</html>
+

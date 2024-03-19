@@ -4,7 +4,6 @@ from alchemyClasses import db
 
 
 class Alumno(db.Model):
-
     __tablename__ = 'alumno'
     id_alumno = Column(Integer, primary_key=True)
     nombre = Column(String(45))

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar película</title>
+</head>
+<body>
+    <h1>Crear una película</h1>
+    <form action="{{ url_for('pelicula.registra_pelicula') }}" method="POST">
+        <label for="nombre">Ingrese el nombre:</label><br>
+        <input type="text" name="nombre" id="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="El nombre no puede contener números ni caracteres especiales" required>
+        <br><br>
+        <label for="genero">Ingrese el género:</label><br>
+        <input type="text" name="genero" id="genero" required>
+        <br><br>
+        <label for="duracion">Ingrese la duración (minutos):</label><br>
+        <input type="number" name="duracion" id="duracion" min="1" required>
+        <br><br>
+        <label for="inventario">Ingrese el inventario:</label><br>
+        <input type="number" name="inventario" id="inventario" min="0" required>
+        <br><br>
+        <button type="submit">Crear película</button>
+    </form>
+    {% if get_flashed_messages() %}
+        {% for message in get_flashed_messages() %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <button onclick="window.location.href='/pelicula'">Regresar</button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Renta</title>
+</head>
+<body>
+    <h1>Actualizar Renta</h1>
+    <form action="{{ url_for('renta.procesar_actualizacion') }}" method="POST">
+        <input type="hidden" name="idRenta" value="{{ renta.idRenta }}">
+
+        <label for="fechaRenta">Fecha de Renta:</label><br>
+        <input type="date" id="fechaRenta" name="fechaRenta" value="{{ renta.fechaRenta }}"><br><br>
+
+        <label for="diasDeRenta">Días de Renta:</label><br>
+        <input type="number" id="diasDeRenta" name="diasDeRenta" value="{{ renta.diasDeRenta }}"><br><br>
+
+        <label for="estatus">Estatus:</label><br>
+        <select id="estatus" name="estatus">
+            <option value="True" {% if renta.estatus %} selected {% endif %}>Rentado</option>
+            <option value="False" {% if not renta.estatus %} selected {% endif %}>Devuelto</option>
+        </select><br><br>
+
+        <input type="submit" value="Actualizar Renta">
+    </form>
+    <button onclick="window.location.href='/renta'">Regresar</button>
+</body>
+</html>
