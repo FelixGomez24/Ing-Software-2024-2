@@ -1,0 +1,70 @@
+.CreateRenta {
+  background-size: contain;
+  background-position: center;
+  background:
+    linear-gradient(to bottom,
+    rgba(213, 201, 68, 0.863),
+    rgba(29, 171, 34, 0.6),
+    rgba(55, 165, 165, 0.45) );
+  background-color: rgb(20, 152, 164);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: calc(14px + 2vmin); /* Ajusta el valor según el tamaño deseado */
+  color: white;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+  font-size: 2em; /* Ajusta el tamaño de la fuente del título según el tamaño deseado */
+}
+
+.botC button {
+  padding: 10px 20px; /* Ajusta el tamaño del padding según el tamaño deseado */
+  font-size: 1.2em; /* Ajusta el tamaño de la fuente del botón según el tamaño deseado */
+  background:
+    linear-gradient(to bottom,
+    rgba(213, 201, 68, 0.863),
+    rgba(29, 171, 34, 0.6),
+    rgba(55, 165, 165, 0.45) );
+  background-color: rgb(20, 152, 164);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px; /* Ajusta el margen según el tamaño deseado */
+  border-radius: 5px;
+  text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.botC button:hover {
+  background-color: rgb(20, 152, 164); /* Cambio de color al pasar el cursor */
+  box-shadow: 0px 12px 20px rgba(219,144,.5); /* Cambio de sombra al pasar el cursor (rojo) */
+}
+
+
+.Pedir-container {
+  margin: 30px; /* Ajusta el margen según el tamaño deseado */
+}
+
+.Pedir {
+  color: black;
+  text-shadow: 8px 8px 16px rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.61);
+  padding: 20px; /* Ajusta el padding según el tamaño deseado */
+}
+
+.mensaje {
+  margin-bottom: 30px; /* Ajusta el margen inferior según el tamaño deseado */
+  color: black;
+  text-align: center;
+}
+
+.caja {
+  background-color: rgba(255, 255, 255, 0.61);
+  border: 1px solid #80deea;
+  padding: 20px; /* Ajusta el padding según el tamaño deseado */
+  border-radius: 5px;
+}
